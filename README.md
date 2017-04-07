@@ -34,7 +34,7 @@ var network = new PerfectNetwork(
 );
 ```
 
-### Network outline
+### NetworkClient outline
 ```javascript
 function NetworkClient (sendFunction, callback) {
     this.sendFunction = sendFunction;
