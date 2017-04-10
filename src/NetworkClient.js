@@ -9,13 +9,13 @@ function NetworkClient (sendFunction, callback) {
 }
 
 NetworkClient.prototype.send = function (data) {
-    var packet = { sequenceNumber: this.sequenceNumber, data: data }; // attach data with sequenceNo
+    const packet = { sequenceNumber: this.sequenceNumber, data: data }; // attach data with sequenceNo
     this.sequenceNumber++;
     this.sendFunction(JSON.stringify(packet));
 };
 
 NetworkClient.prototype.recv = function(packet) {
-    var unpacked = JSON.parse(packet);
+    const unpacked = JSON.parse(packet);
     if (!this.buffer[unpacked.sequenceNumber]) { //ignore if duplicate
       this.buffer[unpacked.sequenceNumber] = unpacked.data;
       this.streamBuffer();
